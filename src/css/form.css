@@ -1,0 +1,139 @@
+.form {
+  margin-top: 36px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.form-input {
+  box-sizing: border-box;
+  width: 272px;
+  max-height: 40px;
+  border-radius: 4px;
+  width: 272px;
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid #808080;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #808080;
+  padding: 8px 16px;
+  transition: border-color 300ms;
+}
+
+.form-input:hover {
+  border-color: #000;
+}
+.form-input:focus {
+  border-color: #4e75ff;
+  outline: none;
+  color: #2e2f42;
+}
+
+.submit-btn {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  height: 40px;
+  background-color: #4e75ff;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  transition: background-color 300ms;
+}
+.submit-btn:hover {
+  background-color: #6c8cff;
+}
+
+/* Gallery */
+.gallery {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: 1128px;
+  margin: 30px auto 0px;
+}
+.gallery-item {
+  width: calc((100% - (2 * 24px)) / 3);
+  transition: transform 0.3s;
+}
+.gallery-item:hover,
+.gallery-item:focus {
+  transform: scale(1.04);
+}
+.gallery-link {
+}
+.gallery-image {
+  /* width: auto;
+  height: 100%; */
+  object-fit: cover;
+}
+
+.img-descr {
+  margin-top: 4px;
+  /* margin-bottom: 24px; */
+}
+.list-descr {
+  display: flex;
+  /* gap: 28px; */
+  justify-content: space-around;
+}
+.item-descr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.descr-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+.descr-value {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+/* #region Loader */
+.loader {
+  position: relative;
+  top: 200px;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.loader:before , .loader:after{
+  content: '';
+  border-radius: 50%;
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3) inset;
+}
+.loader:after {
+  box-shadow: 0 2px 0 #FF3D00 inset;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  0% {  transform: rotate(0)}
+  100% { transform: rotate(360deg)}
+}
+
+.visually-hidden {
+  display: none;
+}
+/* #endregion */
