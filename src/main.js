@@ -32,6 +32,7 @@ async function onSubmit(evt) {
   searchQuery = refs.searchInput.value;
   if (searchQuery.trim() === '') {
     refs.galleryEl.innerHTML = '';
+    refs.moreBtnEl.classList.add('visually-hidden');
     iziToast.warning({
       position: 'topRight',
       message: 'Please enter something',
