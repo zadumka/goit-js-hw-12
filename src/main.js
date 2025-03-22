@@ -40,6 +40,7 @@ async function onSubmit(evt) {
     return;
   }
   refs.moreBtnEl.classList.add('visually-hidden');
+  refs.loaderEl.classList.remove('visually-hidden');
   refs.galleryEl.innerHTML = '';
   try {
     const data = await fetchData(searchQuery, currentPage);
@@ -55,10 +56,8 @@ async function onSubmit(evt) {
           'Sorry, there are no images matching your search query. Please try again!',
       });
       return;
-    }
-    refs.loaderEl.classList.remove('visually-hidden');
+    }    
     renderMarkup(data.hits);
-
     if (currentPage >= totalPages) {
       refs.moreBtnEl.classList.add('visually-hidden');
       refs.loaderEl.classList.add('visually-hidden');
