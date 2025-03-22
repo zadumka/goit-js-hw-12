@@ -47,8 +47,24 @@
   color: #fff;
   transition: background-color 300ms;
 }
-.submit-btn:hover {
+.submit-btn:hover,
+.more-btn:hover {
   background-color: #6c8cff;
+}
+.more-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  padding: 8px 16px;
+  width: 125px;
+  height: 40px;
+  background-color: #4e75ff;
+  margin: 30px auto 20px;
 }
 
 /* Gallery */
@@ -58,7 +74,8 @@
   flex-wrap: wrap;
   gap: 24px;
   max-width: 1128px;
-  margin: 30px auto 0px;
+  margin: 30px auto 10px;
+  /* padding-bottom: 30px; */
 }
 .gallery-item {
   width: calc((100% - (2 * 24px)) / 3);
@@ -116,7 +133,8 @@
   height: 100px;
 }
 
-.loader:before , .loader:after{
+.loader:before,
+.loader:after {
   content: '';
   border-radius: 50%;
   position: absolute;
@@ -124,13 +142,17 @@
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3) inset;
 }
 .loader:after {
-  box-shadow: 0 2px 0 #FF3D00 inset;
+  box-shadow: 0 2px 0 #ff3d00 inset;
   animation: rotate 2s linear infinite;
 }
 
 @keyframes rotate {
-  0% {  transform: rotate(0)}
-  100% { transform: rotate(360deg)}
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .visually-hidden {

@@ -1,23 +1,25 @@
-export const createMarkUp = images =>
-  images
-    .map(image => {
-      const {
-        webformatURL,
-        largeImageURL,
-        tags,
-        likes,
-        views,
-        comments,
-        downloads,
-      } = image;
-      return `<li class="gallery-item">
+import { refs } from '../main';
+
+export function renderMarkup(images) {
+  const markup = images
+      .map(image => {
+        const {
+          webformatURL,
+          largeImageURL,
+          tags,
+          likes,
+          views,
+          comments,
+          downloads,
+        } = image;
+        return `<li class="gallery-item">
       <div>
         <a class="gallery-link" href="${largeImageURL}">
           <img
             class="gallery-image"
             src="${webformatURL}"
             alt="${tags}" 
-            title="${tags}"
+            title="${tags.slice(0, 30)}"
             width="360"
             height="152"
           />
@@ -45,5 +47,7 @@ export const createMarkUp = images =>
           </div>
       </li>
       `;
-    })
-    .join('');
+      })
+      .join('');
+  refs.galleryEl.insertAdjacentHTML('beforeend', markup);
+}
