@@ -19,7 +19,7 @@ export function renderMarkup(images) {
             class="gallery-image"
             src="${webformatURL}"
             alt="${tags}" 
-            title="${tags.slice(0, 30)}"
+            title="${tags.slice(0, 50)}"
             width="360"
             height="152"
           />
