@@ -1,7 +1,5 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
 import { renderMarkup } from './js/render-functions';
 import { fetchData } from './js/pixabay-api';
 import errorIcon from '/img/error.png';
@@ -14,11 +12,6 @@ export const refs = {
   moreBtnEl: document.querySelector('.more-btn'),
 };
 
-let gallery = new SimpleLightbox('.gallery a', {
-  captionsData: 'title',
-  captionDelay: 250,
-  scrollZoom: false,
-});
 export let searchQuery = '';
 let totalPages = 0;
 let currentPage = 1;
@@ -70,7 +63,6 @@ async function onSubmit(evt) {
       return;
     }
     refs.moreBtnEl.classList.remove('visually-hidden');
-    gallery.refresh();
   } catch (error) {
     console.log(error);
   }
@@ -84,7 +76,6 @@ async function onLoadMore() {
   try {
     const nextImages = await fetchData(searchQuery, currentPage);
     renderMarkup(nextImages.hits);
-    gallery.refresh();
     const galleryItemEl = document.querySelector('.gallery-item');
     const cardElement = galleryItemEl.getBoundingClientRect();
     const cardElementHeight = cardElement.height;
@@ -100,8 +91,7 @@ async function onLoadMore() {
         message: "We're sorry, but you've reached the end of search results.",
       });
       return;
-    }
-    
+    }    
   } catch (error) {
     console.log(error);
   }

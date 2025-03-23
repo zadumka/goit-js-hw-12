@@ -1,18 +1,26 @@
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 import { refs } from '../main';
+
+let gallery = new SimpleLightbox('.gallery a', {
+  captionsData: 'title',
+  captionDelay: 250,
+  scrollZoom: false,
+});
 
 export function renderMarkup(images) {
   const markup = images
-      .map(image => {
-        const {
-          webformatURL,
-          largeImageURL,
-          tags,
-          likes,
-          views,
-          comments,
-          downloads,
-        } = image;
-        return `<li class="gallery-item">
+    .map(image => {
+      const {
+        webformatURL,
+        largeImageURL,
+        tags,
+        likes,
+        views,
+        comments,
+        downloads,
+      } = image;
+      return `<li class="gallery-item">
       <div>
         <a class="gallery-link" href="${largeImageURL}">
           <img
@@ -47,7 +55,8 @@ export function renderMarkup(images) {
           </div>
       </li>
       `;
-      })
-      .join('');
+    })
+    .join('');
   refs.galleryEl.insertAdjacentHTML('beforeend', markup);
+  gallery.refresh();
 }
