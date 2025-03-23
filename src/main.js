@@ -46,6 +46,7 @@ async function onSubmit(evt) {
     const data = await fetchData(searchQuery, currentPage);
     totalPages = Math.ceil(data.totalHits / data.hits.length);
     if (data.hits.length === 0) {
+      refs.loaderEl.classList.add('visually-hidden');
       refs.formEl.reset();
       iziToast.error({
         position: 'topRight',
